@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
     <meta name="theme-color" content="#5fb8f5" />
     <title>Rarescraper</title>
-    <script type="module" crossorigin src="./assets/index-fhGtKfqC.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-Bv2K-OX0.css">
+    <script type="module" crossorigin src="./assets/index-sXCzbgNe.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Bc-Cvy-0.css">
   </head>
   <body>
     <div id="game">
@@ -21,11 +21,13 @@
           <div id="count"><b id="count-n">0</b> floors<div id="zone"></div></div>
         </div>
         <div class="hud-right">
+          <!-- The mute button beside the timer and End run under it (the owner, 2026-11-18: "the volume and the end
+               run button should switch positions"). -->
           <div class="hud-row">
-            <button type="button" class="btn finish" id="finish" title="End your run now, keeping your score">End run</button>
+            <button type="button" class="sound-btn" id="sound-hud" data-sound-toggle aria-label="Mute sound"></button>
             <div class="timer" id="hud-timer">0:30</div>
           </div>
-          <button type="button" class="sound-btn" id="sound-hud" data-sound-toggle aria-label="Mute sound"></button>
+          <button type="button" class="btn finish" id="finish" title="End your run now, keeping your score">End run</button>
         </div>
       </header>
 
@@ -93,24 +95,27 @@
             <button class="btn" id="share-btn" disabled>Preparing…</button>
             <button class="btn ghost" id="top-btn">See the top 100</button>
           </div>
-          <button type="button" class="btn ghost small" id="copy-text-btn">Copy text</button>
-          <div id="share-text-box" hidden>
-            <p class="note small">Copy this text:</p>
-            <textarea id="share-text" readonly rows="4"></textarea>
-          </div>
-          <p class="note" id="end-copied" role="status"></p>
         </div>
       </section>
 
       <section id="card-view" class="overlay" role="dialog" aria-modal="true" aria-labelledby="card-view-title">
         <div class="panel card-panel">
-          <h2 id="card-view-title">Your tower</h2>
-          <img id="card-img" alt="" />
-          <p class="note" id="card-how"></p>
-          <div class="row">
-            <a class="btn" id="card-download" hidden>Download</a>
-            <button class="btn ghost" id="card-close">Close</button>
+          <h2 id="card-view-title">Share your tower</h2>
+          <div class="share-pic" id="share-pic" role="button" tabindex="0">
+            <img id="card-img" alt="" />
+            <span class="share-badge" id="share-badge"><svg viewBox="0 0 8 8" width="14" height="14" aria-hidden="true" shape-rendering="crispEdges"><path fill="currentColor" d="M0 0h5v1H1v4H0zM2 2h6v6H2zM3 3v4h4V3z"/></svg><span id="share-badge-text">Tap to copy</span></span>
+            <span class="share-stamp" id="share-stamp" aria-hidden="true">Copied!</span>
           </div>
+          <div class="share-results">
+            <textarea id="share-text" readonly rows="2" aria-label="Your results"></textarea>
+            <button type="button" class="share-copy" id="share-copy-text" aria-label="Copy results" title="Copy results"><svg viewBox="0 0 8 8" width="14" height="14" aria-hidden="true" shape-rendering="crispEdges"><path fill="currentColor" d="M0 0h5v1H1v4H0zM2 2h6v6H2zM3 3v4h4V3z"/></svg></button>
+          </div>
+          <div class="share-actions">
+            <button class="btn" id="share-send" hidden>Send…</button>
+            <a class="btn" id="card-download" role="button">Save</a>
+          </div>
+          <p class="note" id="share-status" role="status"></p>
+          <button class="btn ghost small" id="card-close">Close</button>
         </div>
       </section>
 
