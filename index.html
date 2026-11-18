@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
     <meta name="theme-color" content="#5fb8f5" />
     <title>Rarescraper</title>
-    <script type="module" crossorigin src="./assets/index-CodYCRsE.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DC2TtpUy.css">
+    <script type="module" crossorigin src="./assets/index-BI10cX5X.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Bv2K-OX0.css">
   </head>
   <body>
     <div id="game">
@@ -47,9 +47,17 @@
 
       <section id="start" class="overlay">
         <div class="panel">
+          <div class="welcome" id="start-welcome" hidden>
+            <div class="title">Rarescraper</div>
+            <p class="pitch">Name rare things. Build the tallest tower.<br>A new category every day.</p>
+          </div>
           <div class="day" id="start-day"></div>
           <h1 id="start-topic"></h1>
-          <ol class="rules">
+          <div class="start-stats" id="start-stats" hidden>
+            <div id="start-streak-box"><div class="v" id="start-streak"></div><div class="l">day streak</div></div>
+            <div id="start-best-box"><div class="v" id="start-best"></div><div class="l">best floors</div></div>
+          </div>
+          <ol class="rules" id="start-rules">
             <li>Name answers to the topic. Each one adds a floor.</li>
             <li>Keep going <b>rarer</b>: the fewer people who'd think of an answer, the better. Too common and it topples.<br><i>Animals:</i> Dog → Zebra → Okapi</li>
             <li><b>3 lives:</b> a topple or running out of time (20 seconds per floor) costs one.</li>
@@ -58,8 +66,8 @@
             <li>Out of ideas? <b>End run</b> keeps your score.</li>
           </ol>
           <button class="btn big" id="start-btn">Start</button>
+          <div><button type="button" class="link" id="howto-btn" hidden>How to play</button></div>
           <div><button type="button" class="btn ghost small sound-start" id="sound-start" data-sound-toggle>Sound: on</button></div>
-          <p class="note" id="start-pbs"></p>
           <p class="note ai">Ranks in this mockup are estimated by AI.</p>
         </div>
       </section>
@@ -71,6 +79,11 @@
             <div class="stat"><div class="v" id="end-floors"></div><div class="l">floors</div><div class="pb" id="pb-floors"></div></div>
           </div>
           <div class="ending" id="end-ending"></div>
+          <div class="next-tower" id="end-next" hidden>
+            <div class="l">Next tower in</div>
+            <div class="t" id="end-next-time"></div>
+            <div class="tm">Tomorrow: <b id="end-next-topic"></b></div>
+          </div>
           <p class="note tower-reveal" id="end-tower"></p>
           <div class="curves">
             <div class="curve" id="curve-floors"></div>
