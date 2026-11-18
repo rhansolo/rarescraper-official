@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
+    <meta name="theme-color" content="#5fb8f5" />
+    <title>Rarescraper</title>
+    <script type="module" crossorigin src="./assets/index-CodYCRsE.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DC2TtpUy.css">
+  </head>
+  <body>
+    <div id="game">
+      <canvas id="scene"></canvas>
+      <div id="hint" class="hint"></div>
+      <div id="ruler" aria-label="Where your answers rank, from #1 at the bottom to #100 at the top"></div>
+
+      <header id="hud">
+        <div>
+          <div class="day" id="hud-day"></div>
+          <div class="topic" id="hud-topic"></div>
+          <div id="count"><b id="count-n">0</b> floors<div id="zone"></div></div>
+        </div>
+        <div class="hud-right">
+          <div class="hud-row">
+            <button type="button" class="btn finish" id="finish" title="End your run now, keeping your score">End run</button>
+            <div class="timer" id="hud-timer">0:20</div>
+          </div>
+          <button type="button" class="sound-btn" id="sound-hud" data-sound-toggle aria-label="Mute sound"></button>
+        </div>
+      </header>
+
+      <div class="hats" id="hats" aria-label="Lives left"></div>
+
+      <div id="msg" role="status" aria-live="polite"></div>
+
+      <footer id="bar">
+        <form id="entry" autocomplete="off">
+          <input id="answer" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" placeholder="Type an answer" aria-label="Your answer" />
+          <!-- On touch devices: the typed answer, shown without a text field so the system keyboard never opens. -->
+          <div id="typed" class="typed" role="textbox" aria-readonly="true" aria-label="Your answer"><span class="inner"><span class="t"></span><span class="caret"></span><span class="ph">Type an answer</span></span></div>
+          <div class="actions">
+            <button type="submit" class="btn drop" id="drop">Drop ⏎</button>
+          </div>
+        </form>
+        <div id="keys"></div>
+      </footer>
+
+      <section id="start" class="overlay">
+        <div class="panel">
+          <div class="day" id="start-day"></div>
+          <h1 id="start-topic"></h1>
+          <ol class="rules">
+            <li>Name answers to the topic. Each one adds a floor.</li>
+            <li>Keep going <b>rarer</b>: the fewer people who'd think of an answer, the better. Too common and it topples.<br><i>Animals:</i> Dog → Zebra → Okapi</li>
+            <li><b>3 lives:</b> a topple or running out of time (20 seconds per floor) costs one.</li>
+            <li><b>The ruler</b> on the right shows how rare each answer is: the rarer, the higher.</li>
+            <li>Know one too rare for the top 100? Drop it, and Drop turns into <b>Spire</b>: it goes on top for <b>+3 floors</b>, but your run ends.</li>
+            <li>Out of ideas? <b>End run</b> keeps your score.</li>
+          </ol>
+          <button class="btn big" id="start-btn">Start</button>
+          <div><button type="button" class="btn ghost small sound-start" id="sound-start" data-sound-toggle>Sound: on</button></div>
+          <p class="note" id="start-pbs"></p>
+          <p class="note ai">Ranks in this mockup are estimated by AI.</p>
+        </div>
+      </section>
+
+      <section id="end" class="overlay top">
+        <div class="panel">
+          <div class="day" id="end-day"></div>
+          <div class="stats">
+            <div class="stat"><div class="v" id="end-floors"></div><div class="l">floors</div><div class="pb" id="pb-floors"></div></div>
+          </div>
+          <div class="ending" id="end-ending"></div>
+          <p class="note tower-reveal" id="end-tower"></p>
+          <div class="curves">
+            <div class="curve" id="curve-floors"></div>
+          </div>
+          <p class="note ai small">Curves use simulated players until the game goes live.</p>
+          <div class="row">
+            <button class="btn" id="share-btn" disabled>Preparing…</button>
+            <button class="btn ghost" id="top-btn">See the top 100</button>
+          </div>
+          <button type="button" class="btn ghost small" id="copy-text-btn">Copy text</button>
+          <div id="share-text-box" hidden>
+            <p class="note small">Copy this text:</p>
+            <textarea id="share-text" readonly rows="4"></textarea>
+          </div>
+          <p class="note" id="end-copied" role="status"></p>
+        </div>
+      </section>
+
+      <section id="card-view" class="overlay" role="dialog" aria-modal="true" aria-labelledby="card-view-title">
+        <div class="panel card-panel">
+          <h2 id="card-view-title">Your tower</h2>
+          <img id="card-img" alt="" />
+          <p class="note" id="card-how"></p>
+          <div class="row">
+            <a class="btn" id="card-download" hidden>Download</a>
+            <button class="btn ghost" id="card-close">Close</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="top100" class="overlay">
+        <div class="panel list">
+          <div class="list-head">
+            <h2 id="top-title"></h2>
+            <button class="btn ghost small" id="top-close">Close</button>
+          </div>
+          <p class="note ai">Ranks are estimated by AI for this mockup.</p>
+          <ol id="top-list"></ol>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
