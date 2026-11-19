@@ -14,18 +14,18 @@
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
     <!-- What a pasted link shows in chats and feeds (docs/launch-plan.md). The picture is the share card's tower beside
          the logo and the pitch, 1200 × 630, made from a played day 1. -->
-    <meta name="description" content="A daily game where the rarest answer wins. Name things in today's category, each rarer than the last. Too common and your tower topples." />
+    <meta name="description" content="A daily word game: build the tallest tower you can. Name things in today's category, each a little rarer than the last. Too common and it topples." />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Rarescraper" />
-    <meta property="og:title" content="Rarescraper: the daily game where the rarest answer wins" />
-    <meta property="og:description" content="Name things in today's category, each rarer than the last. Too common and your tower topples. A new category every day." />
+    <meta property="og:title" content="Rarescraper: build the tallest tower, one rarer answer at a time" />
+    <meta property="og:description" content="Name things in today's category, each a little rarer than the last, and build as high as you can. Too common and it topples. A new category every day." />
     <meta property="og:url" content="https://rarescraper.com/" />
     <meta property="og:image" content="https://rarescraper.com/og.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="The Rarescraper logo beside a pixel tower of answers: Dog, Horse, Kangaroo, Platypus, and an Okapi flag on top." />
     <meta name="twitter:card" content="summary_large_image" />
-    <script type="module" crossorigin src="./assets/index-DnaWQpT2.js"></script>
+    <script type="module" crossorigin src="./assets/index-KXVK3o2S.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-CCfYtMUa.css">
   </head>
   <body>
@@ -58,7 +58,7 @@
       <div class="panel">
         <div class="welcome">
           <div class="title">Rarescraper</div>
-          <p class="pitch">Name rare things. Build the tallest tower.<br>A new category every day.</p>
+          <p class="pitch">Build the tallest tower, one rarer answer at a time.<br>A new category every day.</p>
         </div>
         <div class="next-tower">
           <div class="l">Day 1 opens in</div>
@@ -75,11 +75,12 @@
           <div class="soon-said" id="soon-said"></div>
         </div>
         <ol class="rules soon-rules">
-          <li>Every day has a category. Name answers to it: each one adds a floor.</li>
-          <li>Keep going <b>rarer</b>: the fewer people who'd think of an answer, the better. Too common and it topples.<br><i>Animals:</i> Dog → Zebra → Okapi</li>
+          <li><b>Goal: the tallest tower.</b> Name answers to today's category. Each one adds a floor.</li>
+          <li>Each answer must be <b>rarer</b> than the one below it. Too common and it topples.<br><i>Animals:</i> Dog #1 → Horse #6 → Zebra #12</li>
+          <li><b>Climb in small steps.</b> Jump to a rare answer too soon and there's no room left above it. The more answers you know, the taller you build.</li>
           <li><b>3 lives:</b> a topple or running out of time (30 seconds per floor) costs one.</li>
-          <li><b>The ruler</b> beside the tower shows how rare each answer is: the rarer, the higher.</li>
-          <li>Know one too rare for the top 100? Drop it, and Drop turns into <b>Spire</b>: it goes on top for <b>+3 floors</b>, but your run ends.</li>
+          <li><b>The ruler</b> beside the tower shows where each answer ranks: #1, the most common, at the bottom.</li>
+          <li>Know one too rare for the top 100? Drop it, and Drop turns into <b>Spire</b>: <b>+3 floors</b> on top, but it ends your run, so save it for last.</li>
           <li>Out of ideas? <b>End run</b> keeps your score.</li>
         </ol>
       </div>
@@ -137,7 +138,7 @@
         <div class="panel">
           <div class="welcome" id="start-welcome" hidden>
             <div class="title">Rarescraper</div>
-            <p class="pitch">Name rare things. Build the tallest tower.<br>A new category every day.</p>
+            <p class="pitch">Build the tallest tower, one rarer answer at a time.<br>A new category every day.</p>
           </div>
           <div class="day" id="start-day"></div>
           <h1 id="start-topic"></h1>
@@ -146,11 +147,12 @@
             <div id="start-best-box"><div class="v" id="start-best"></div><div class="l">best floors</div></div>
           </div>
           <ol class="rules" id="start-rules" hidden>
-            <li>Name answers to the topic. Each one adds a floor.</li>
-            <li>Keep going <b>rarer</b>: the fewer people who'd think of an answer, the better. Too common and it topples.<br><i>Animals:</i> Dog → Zebra → Okapi</li>
+            <li><b>Goal: the tallest tower.</b> Name answers to today's category. Each one adds a floor.</li>
+            <li>Each answer must be <b>rarer</b> than the one below it. Too common and it topples.<br><i>Animals:</i> Dog #1 → Horse #6 → Zebra #12</li>
+            <li><b>Climb in small steps.</b> Jump to a rare answer too soon and there's no room left above it. The more answers you know, the taller you build.</li>
             <li><b>3 lives:</b> a topple or running out of time (30 seconds per floor) costs one.</li>
-            <li><b>The ruler</b> on the right shows how rare each answer is: the rarer, the higher.</li>
-            <li>Know one too rare for the top 100? Drop it, and Drop turns into <b>Spire</b>: it goes on top for <b>+3 floors</b>, but your run ends.</li>
+            <li><b>The ruler</b> beside the tower shows where each answer ranks: #1, the most common, at the bottom.</li>
+            <li>Know one too rare for the top 100? Drop it, and Drop turns into <b>Spire</b>: <b>+3 floors</b> on top, but it ends your run, so save it for last.</li>
             <li>Out of ideas? <b>End run</b> keeps your score.</li>
           </ol>
           <button class="btn big" id="start-btn">Start</button>
