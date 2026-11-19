@@ -80,10 +80,10 @@
   "survey": true
  },
  "11": {
-  "id": "cartoon-characters",
+  "id": "pokemon",
   "source": "seed",
-  "version": "6e9f5ac49fe1",
-  "topic": "Cartoon characters",
+  "version": "0cc7eafabddc",
+  "topic": "Pokémon",
   "from": "schedule",
   "survey": true
  },
@@ -96,10 +96,10 @@
   "survey": true
  },
  "13": {
-  "id": "snacks-candy",
+  "id": "candy",
   "source": "seed",
-  "version": "191b5f5bc2d2",
-  "topic": "Snacks and candy",
+  "version": "7319552d8d31",
+  "topic": "Candy",
   "from": "schedule",
   "survey": true
  },
@@ -168,18 +168,18 @@
   "survey": true
  },
  "22": {
-  "id": "world-cities",
+  "id": "rappers",
   "source": "seed",
-  "version": "21e078995e7a",
-  "topic": "Cities outside the US",
+  "version": "3aeab26fd750",
+  "topic": "Rappers",
   "from": "schedule",
   "survey": true
  },
  "23": {
-  "id": "famous-landmarks",
+  "id": "fashion-brands",
   "source": "seed",
-  "version": "7a5e8abca6c5",
-  "topic": "Landmarks outside the US",
+  "version": "77738273bcbe",
+  "topic": "Fashion brands",
   "from": "schedule",
   "survey": true
  },
