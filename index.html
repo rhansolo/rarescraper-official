@@ -1,29 +1,303 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="referrer" content="no-referrer">
-  <title>Play is temporarily paused · Rarescraper</title>
-  <style>
-    @media (prefers-color-scheme: dark) { :root { color-scheme: light; } }
-    * { box-sizing: border-box; }
-    body { min-height: 100vh; display: grid; place-items: center; margin: 0; padding: 1.5rem;
-      background: #69b6e8; color: #1b3a5c; font-family: system-ui, sans-serif; }
-    main { width: min(100%, 25rem); padding: 1.5rem; background: #fcf9f0;
-      border: 3px solid #1b3a5c; box-shadow: 5px 5px #1b3a5c; }
-    h1 { margin: 0; font-size: 1.5rem; line-height: 1.2; }
-    p { margin: .8rem 0 1.25rem; }
-    a { display: inline-block; padding: .6rem .9rem; color: inherit; background: #ffcf3f;
-      border: 2px solid #1b3a5c; font-weight: 700; }
-    a:focus-visible { outline: 3px solid #1b3a5c; outline-offset: 3px; }
-  </style>
-</head>
-<body>
-  <main>
-    <h1>Play is temporarily paused</h1>
-    <p>We’re getting the next tower ready. Your saved results are still on this device.</p>
-    <a href="/">Check again</a>
-  </main>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
+    <meta name="theme-color" content="#5fb8f5" />
+    <!-- The game is light only: browsers that repaint light pages dark (Safari's Adaptive Dark Mode, Dark Reader) leave it
+         alone, since their dark copy hid the logo and muddied the bars (the owner, 2026-11-19: "I think dark mode is a bit
+         ugly"). Safari honours "only" from after its 27.3 beta 1. -->
+    <meta name="color-scheme" content="light only" />
+    <meta name="darkreader-lock" />
+    <title>Rarescraper</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon-DfG0fIjK.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- What a pasted link shows in chats and feeds (docs/launch-plan.md). The picture is the share card's tower beside
+         the logo and the pitch, 1200 × 630, made from a played day 1. -->
+    <meta name="description" content="A daily word game: build the tallest tower you can. Name things in today's category, each a little rarer than the last. Too common and it topples." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Rarescraper" />
+    <meta property="og:title" content="Rarescraper: build the tallest tower, one rarer answer at a time" />
+    <meta property="og:description" content="Name things in today's category, each a little rarer than the last, and build as high as you can. Too common and it topples. A new category every day." />
+    <meta property="og:url" content="https://rarescraper.com/" />
+    <meta property="og:image" content="https://rarescraper.com/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="The Rarescraper logo beside a pixel tower of answers: Dog, Horse, Kangaroo, Platypus, and an Okapi flag on top." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="module" crossorigin src="./assets/index-McscVMlo.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-C1gUUK7X.css">
+  </head>
+  <body>
+    <!-- The site's header bar across the whole window (the owner, 2026-11-18). Stats and How to play hide during a
+         run, so a stray tap can't cover the clock; Settings stays, for the sound. -->
+    <header id="topbar">
+      <div class="brand">
+        <a id="top-logo" href="./" aria-label="Rarescraper, today’s tower">
+          <img class="logo" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2065%2011'%20shape-rendering='crispEdges'%20role='img'%3e%3ctitle%3eRarescraper%3c/title%3e%3cpath%20fill='%231b3a5c'%20d='M0%204h1v1h-1zM1%204h1v1h-1zM2%204h1v1h-1zM3%204h1v1h-1zM0%205h1v1h-1zM4%205h1v1h-1zM0%206h1v1h-1zM4%206h1v1h-1zM0%207h1v1h-1zM1%207h1v1h-1zM2%207h1v1h-1zM3%207h1v1h-1zM0%208h1v1h-1zM2%208h1v1h-1zM0%209h1v1h-1zM3%209h1v1h-1zM0%2010h1v1h-1zM4%2010h1v1h-1zM8%200h1v1h-1zM8%201h1v1h-1zM8%202h1v1h-1zM8%203h1v1h-1zM12%204h1v1h-1zM13%204h1v1h-1zM14%204h1v1h-1zM15%204h1v1h-1zM12%205h1v1h-1zM16%205h1v1h-1zM12%206h1v1h-1zM16%206h1v1h-1zM12%207h1v1h-1zM13%207h1v1h-1zM14%207h1v1h-1zM15%207h1v1h-1zM12%208h1v1h-1zM14%208h1v1h-1zM12%209h1v1h-1zM15%209h1v1h-1zM12%2010h1v1h-1zM16%2010h1v1h-1zM18%204h1v1h-1zM19%204h1v1h-1zM20%204h1v1h-1zM21%204h1v1h-1zM22%204h1v1h-1zM18%205h1v1h-1zM18%206h1v1h-1zM18%207h1v1h-1zM19%207h1v1h-1zM20%207h1v1h-1zM21%207h1v1h-1zM18%208h1v1h-1zM18%209h1v1h-1zM18%2010h1v1h-1zM19%2010h1v1h-1zM20%2010h1v1h-1zM21%2010h1v1h-1zM22%2010h1v1h-1zM25%204h1v1h-1zM26%204h1v1h-1zM27%204h1v1h-1zM28%204h1v1h-1zM24%205h1v1h-1zM24%206h1v1h-1zM25%207h1v1h-1zM26%207h1v1h-1zM27%207h1v1h-1zM28%208h1v1h-1zM28%209h1v1h-1zM24%2010h1v1h-1zM25%2010h1v1h-1zM26%2010h1v1h-1zM27%2010h1v1h-1zM31%204h1v1h-1zM32%204h1v1h-1zM33%204h1v1h-1zM34%204h1v1h-1zM30%205h1v1h-1zM30%206h1v1h-1zM30%207h1v1h-1zM30%208h1v1h-1zM30%209h1v1h-1zM31%2010h1v1h-1zM32%2010h1v1h-1zM33%2010h1v1h-1zM34%2010h1v1h-1zM36%204h1v1h-1zM37%204h1v1h-1zM38%204h1v1h-1zM39%204h1v1h-1zM36%205h1v1h-1zM40%205h1v1h-1zM36%206h1v1h-1zM40%206h1v1h-1zM36%207h1v1h-1zM37%207h1v1h-1zM38%207h1v1h-1zM39%207h1v1h-1zM36%208h1v1h-1zM38%208h1v1h-1zM36%209h1v1h-1zM39%209h1v1h-1zM36%2010h1v1h-1zM40%2010h1v1h-1zM43%204h1v1h-1zM44%204h1v1h-1zM45%204h1v1h-1zM42%205h1v1h-1zM46%205h1v1h-1zM42%206h1v1h-1zM46%206h1v1h-1zM42%207h1v1h-1zM43%207h1v1h-1zM44%207h1v1h-1zM45%207h1v1h-1zM46%207h1v1h-1zM42%208h1v1h-1zM46%208h1v1h-1zM42%209h1v1h-1zM46%209h1v1h-1zM42%2010h1v1h-1zM46%2010h1v1h-1zM48%204h1v1h-1zM49%204h1v1h-1zM50%204h1v1h-1zM51%204h1v1h-1zM48%205h1v1h-1zM52%205h1v1h-1zM48%206h1v1h-1zM52%206h1v1h-1zM48%207h1v1h-1zM49%207h1v1h-1zM50%207h1v1h-1zM51%207h1v1h-1zM48%208h1v1h-1zM48%209h1v1h-1zM48%2010h1v1h-1zM54%204h1v1h-1zM55%204h1v1h-1zM56%204h1v1h-1zM57%204h1v1h-1zM58%204h1v1h-1zM54%205h1v1h-1zM54%206h1v1h-1zM54%207h1v1h-1zM55%207h1v1h-1zM56%207h1v1h-1zM57%207h1v1h-1zM54%208h1v1h-1zM54%209h1v1h-1zM54%2010h1v1h-1zM55%2010h1v1h-1zM56%2010h1v1h-1zM57%2010h1v1h-1zM58%2010h1v1h-1zM60%204h1v1h-1zM61%204h1v1h-1zM62%204h1v1h-1zM63%204h1v1h-1zM60%205h1v1h-1zM64%205h1v1h-1zM60%206h1v1h-1zM64%206h1v1h-1zM60%207h1v1h-1zM61%207h1v1h-1zM62%207h1v1h-1zM63%207h1v1h-1zM60%208h1v1h-1zM62%208h1v1h-1zM60%209h1v1h-1zM63%209h1v1h-1zM60%2010h1v1h-1zM64%2010h1v1h-1z'/%3e%3cpath%20fill='%23d8433a'%20d='M9%200h1v1h-1zM10%200h1v1h-1zM9%201h1v1h-1zM10%201h1v1h-1z'/%3e%3cpath%20fill='%23f2b632'%20d='M7%204h1v1h-1zM8%204h1v1h-1zM9%204h1v1h-1z'/%3e%3cpath%20fill='%237d55c4'%20d='M6%205h1v1h-1zM10%205h1v1h-1zM6%206h1v1h-1zM10%206h1v1h-1z'/%3e%3cpath%20fill='%233f7ad6'%20d='M6%207h1v1h-1zM7%207h1v1h-1zM8%207h1v1h-1zM9%207h1v1h-1zM10%207h1v1h-1z'/%3e%3cpath%20fill='%233d9f78'%20d='M6%208h1v1h-1zM10%208h1v1h-1z'/%3e%3cpath%20fill='%23b9a98c'%20d='M6%209h1v1h-1zM10%209h1v1h-1zM6%2010h1v1h-1zM10%2010h1v1h-1z'/%3e%3c/svg%3e" alt="Rarescraper" />
+        </a>
+        <span class="date" id="top-date"></span>
+      </div>
+      <span id="top-floor-count"><b id="top-floor-number">0</b> <span id="top-floor-label">floors</span></span>
+      <div class="top-actions">
+        <!-- The playtest's way back to its list of days (src/ui/days.ts); the official site never shows it. -->
+        <a class="sound-btn" id="days-btn" href="./" hidden aria-label="All days" title="All days"><svg viewBox="0 0 8 8" shape-rendering="crispEdges" fill="currentColor" aria-hidden="true"><path d="M1 0h1v1H1zM6 0h1v1H6zM0 1h8v2H0zM0 3h1v5H0zM7 3h1v5H7zM1 7h6v1H1zM2 4h1v1H2zM4 4h1v1H4zM2 5h1v1H2z"/></svg></a>
+        <span class="streak-pill" id="top-streak" hidden>🔥 <b id="top-streak-n"></b><span class="long">-day streak</span></span>
+        <button type="button" class="sound-btn" id="stats-btn" aria-label="Your stats" title="Your stats"><svg viewBox="0 0 8 8" shape-rendering="crispEdges" fill="currentColor" aria-hidden="true"><path d="M0 5h2v3H0zM3 2h2v6H3zM6 0h2v8H6z"/></svg></button>
+        <button type="button" class="sound-btn" id="help-btn" aria-label="How to play" title="How to play"><svg viewBox="0 0 6 8" shape-rendering="crispEdges" fill="currentColor" aria-hidden="true"><path d="M1 0h4v1H1zM0 1h2v1H0zM4 1h2v2H4zM3 3h2v1H3zM2 4h2v1H2zM2 6h2v2H2z"/></svg></button>
+        <button type="button" class="sound-btn" id="settings-btn" aria-label="Settings" title="Settings" aria-expanded="false" aria-controls="settings-pop"><svg viewBox="0 0 13 13" shape-rendering="crispEdges" fill="currentColor" aria-hidden="true"><path d="M5 0h3v1H5zM1 1h2v1H1zM5 1h3v1H5zM10 1h2v1H10zM1 2h11v1H1zM2 3h9v1H2zM2 4h3v1H2zM8 4h3v1H8zM0 5h4v1H0zM9 5h4v1H9zM0 6h4v1H0zM9 6h4v1H9zM0 7h4v1H0zM9 7h4v1H9zM2 8h3v1H2zM8 8h3v1H8zM2 9h9v1H2zM1 10h11v1H1zM1 11h2v1H1zM5 11h3v1H5zM10 11h2v1H10zM5 12h3v1H5z"/></svg></button>
+      </div>
+      <!-- Settings: the sound effects and the music, each with its own switch (the owner, 2026-11-24). -->
+      <div class="settings-pop" id="settings-pop" hidden>
+        <button type="button" class="switch-row" id="effects-switch" role="switch" aria-checked="true" data-sound-toggle><span>Sound effects</span><b class="sw"></b></button>
+        <button type="button" class="switch-row" id="music-switch" role="switch" aria-checked="true" data-sound-toggle><span>Music</span><b class="sw"></b></button>
+        <div class="keyboard-setting" id="keyboard-setting" role="group" aria-label="Keyboard" hidden>
+          <span>Keyboard</span>
+          <button type="button" id="game-keyboard" aria-label="Game keyboard" aria-pressed="true">Game</button>
+          <button type="button" id="phone-keyboard" aria-label="Phone keyboard" aria-pressed="false">Phone</button>
+        </div>
+      </div>
+    </header>
+    <!-- The playtest's landing page: every day, to play today's for real or any other as practice (src/ui/days.ts). -->
+    <section id="days" hidden>
+      <div class="panel">
+        <h2 class="dialog-title">Pick a day</h2>
+        <p class="note">Every day here is practice and saves nothing. The count is how many games were finished on rarescraper.com that day.</p>
+        <nav id="days-list" aria-label="Days"></nav>
+      </div>
+    </section>
+    <main id="archive" hidden>
+      <div class="panel">
+        <header class="archive-header">
+          <h1 class="dialog-title" id="archive-title" tabindex="-1">Past towers</h1>
+          <a href="./" id="archive-today" class="btn small">Today’s tower</a>
+        </header>
+        <p class="note" id="archive-note">Play towers from the last seven days. Older towers are locked.</p>
+        <p class="note" id="archive-status" role="status" hidden></p>
+        <button id="archive-retry" class="btn small" type="button" hidden>Retry</button>
+        <ol id="archive-list" aria-label="Past towers, newest first"></ol>
+      </div>
+    </main>
+    <!-- Before day 1: the official site counts down to midnight New York, then opens day 1 by itself (src/ui/soon.ts). -->
+    <section id="soon" hidden>
+      <div class="panel">
+        <div class="welcome">
+          <div class="title">Rarescraper</div>
+          <p class="pitch">Build the tallest tower, one rarer answer at a time.<br>A new category every day.</p>
+        </div>
+        <div class="next-tower">
+          <div class="l">Day 1 opens in</div>
+          <div class="t" id="soon-time"></div>
+          <div class="tm">Midnight, New York time. Leave this page open and it starts by itself.</div>
+        </div>
+        <!-- A practice tower in a made-up category, played by itself in the game's own scene; day 1's category stays a
+             surprise (the owner, 2026-11-19: "I don't think we should reveal the category in advance ... maybe we show
+             a sample animation? With a fake category?"). Animals is the example and never a day (EXAMPLE_ONLY). -->
+        <div class="soon-label">How it works · example: <b>Animals</b></div>
+        <div class="soon-demo" aria-hidden="true">
+          <canvas id="soon-scene"></canvas>
+          <div id="soon-hint" class="hint"></div>
+          <div class="soon-said" id="soon-said"></div>
+        </div>
+        <ol class="rules soon-rules">
+          <li><b>Goal: the tallest tower.</b> Name answers to today's category. Each one adds a floor.</li>
+          <li>Each answer must be <b>rarer</b> than the one below it. Too common and it topples.<br><i>Animals:</i> Dog #1 → Horse #6 → Zebra #12</li>
+          <li><b>Climb in small steps.</b> Jump to a rare answer too soon and there's no room left above it. The more answers you know, the taller you build.</li>
+          <li><b>3 lives:</b> a topple or running out of time (30 seconds per floor) costs one.</li>
+          <li><b>The ruler</b> beside the tower shows where each answer ranks: #1, the most common, at the bottom.</li>
+          <li>Know one too rare for the top 100? Drop it, and Drop turns into <b>Spire</b>: <b>+3 floors</b> on top, but it ends your run, so save it for last.</li>
+          <li>Out of ideas? <b>End run</b> keeps your score.</li>
+        </ol>
+      </div>
+    </section>
+    <!-- A day's whole order, so testers can flag a misplaced answer before or after playing it (src/ui/days.ts). -->
+    <section id="days-top" class="overlay" role="dialog" aria-modal="true" aria-labelledby="days-top-title">
+      <div class="panel list">
+        <div class="list-head">
+          <h2 id="days-top-title"></h2>
+          <button type="button" class="x-close" id="days-top-close" aria-label="Close" title="Close"><svg viewBox="0 0 7 7" shape-rendering="crispEdges" fill="currentColor" aria-hidden="true"><path d="M0 0h2v1H0zM1 1h2v1H1zM2 2h3v1H2zM3 3h1v1H3zM2 4h3v1H2zM1 5h2v1H1zM0 6h2v1H0zM5 0h2v1H5zM4 1h2v1H4zM4 5h2v1H4zM5 6h2v1H5z"/></svg></button>
+        </div>
+        <input id="days-top-search" type="search" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="search" placeholder="Search this list" aria-label="Search this list" />
+        <p id="days-top-verdict" class="note" aria-live="polite" hidden></p>
+        <ol id="days-top-list"></ol>
+      </div>
+    </section>
+    <div id="game">
+      <canvas id="scene"></canvas>
+      <div id="hint" class="hint"></div>
+      <div id="ruler" aria-label="Where your answers rank, from #1 at the bottom to #100 at the top"></div>
+
+      <header id="hud">
+        <div>
+          <div class="day" id="hud-day"></div>
+          <div class="topic" id="hud-topic"></div>
+          <div id="count"><b id="count-n">0</b> floors<div id="zone"></div></div>
+        </div>
+        <div class="hud-right">
+          <!-- The timer with End run under it; the mute button moved up into the header bar (the owner,
+               2026-11-18). -->
+          <div class="hud-row">
+            <div class="timer" id="hud-timer">0:30</div>
+          </div>
+          <button type="button" class="btn finish" id="finish" title="End your run now, keeping your score">End run</button>
+        </div>
+      </header>
+
+      <div class="hats" id="hats" aria-label="Lives left"></div>
+
+      <div id="msg" role="status" aria-live="polite"></div>
+      <div id="run-connection" class="run-connection" hidden>
+        <span role="status">Trouble connecting.</span>
+        <button class="btn small" id="run-retry" type="button">Retry</button>
+      </div>
+      <!-- The rarity label (rarity-drama design): RARE!, EPIC! or LEGENDARY! over the tower, for a run's first floor in
+           that tier. -->
+      <div id="tier-pop" class="tier-pop" aria-live="polite"><div class="w" id="tier-pop-word"></div><div class="r" id="tier-pop-rank"></div></div>
+
+      <footer id="bar">
+        <form id="entry" autocomplete="off">
+          <input id="answer" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" placeholder="Type an answer" aria-label="Your answer" />
+          <!-- Game keyboard mode displays the answer here without opening the system keyboard. -->
+          <div id="typed" class="typed" role="textbox" aria-readonly="true" aria-label="Your answer"><span class="inner"><span class="t"></span><span class="caret"></span><span class="ph">Type an answer</span></span></div>
+          <div class="actions">
+            <button type="submit" class="btn drop" id="drop">Drop ⏎</button>
+          </div>
+        </form>
+        <div id="keys"></div>
+      </footer>
+
+      <section id="start" class="overlay">
+        <div class="panel">
+          <div class="welcome" id="start-welcome" hidden>
+            <div class="title">Rarescraper</div>
+            <p class="pitch">Build the tallest tower, one rarer answer at a time.<br>A new category every day.</p>
+          </div>
+          <div class="day" id="start-day"></div>
+          <h1 id="start-topic"></h1>
+          <p class="note" id="start-status" role="status" hidden></p>
+          <div class="start-stats" id="start-stats" hidden>
+            <div id="start-streak-box"><div class="v" id="start-streak"></div><div class="l">day streak</div></div>
+            <div id="start-best-box"><div class="v" id="start-best"></div><div class="l">best floors</div></div>
+          </div>
+          <ol class="rules" id="start-rules" hidden>
+            <li><b>Goal: the tallest tower.</b> Name answers to today's category. Each one adds a floor.</li>
+            <li>Each answer must be <b>rarer</b> than the one below it. Too common and it topples.<br><i>Animals:</i> Dog #1 → Horse #6 → Zebra #12</li>
+            <li><b>Climb in small steps.</b> Jump to a rare answer too soon and there's no room left above it. The more answers you know, the taller you build.</li>
+            <li><b>3 lives:</b> a topple or running out of time (30 seconds per floor) costs one.</li>
+            <li><b>The ruler</b> beside the tower shows where each answer ranks: #1, the most common, at the bottom.</li>
+            <li>Know one too rare for the top 100? Drop it, and Drop turns into <b>Spire</b>: <b>+3 floors</b> on top, but it ends your run, so save it for last.</li>
+            <li>Out of ideas? <b>End run</b> keeps your score.</li>
+          </ol>
+          <div class="start-actions">
+            <button class="btn big" id="start-btn">Start</button>
+            <a class="btn" id="start-today" href="./" hidden>Today’s tower</a>
+            <a class="tower-link" id="start-archive" href="?archive=1" hidden><span aria-hidden="true">←</span> <span class="tower-link-label">Past towers</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section id="end" class="overlay top">
+        <div class="end-stack">
+          <button class="btn small" id="ask-jump" type="button" hidden>Go to question</button>
+          <div class="panel">
+            <div class="day" id="end-day"></div>
+            <h1 class="result-title" id="end-title" hidden></h1>
+            <div class="stats">
+              <div class="stat"><div class="v" id="end-floors"></div><div class="l" id="end-floor-label">floors</div><div class="pb" id="pb-floors"></div></div>
+              <div class="stat result-percentile" id="end-percentile" hidden><div class="v"></div><div class="l"></div></div>
+            </div>
+            <div class="ending" id="end-ending"></div>
+            <div class="next-tower" id="end-next" hidden>
+              <div class="l">Next tower in</div>
+              <div class="t" id="end-next-time"></div>
+              <div class="tm">Tomorrow: <b id="end-next-topic"></b></div>
+            </div>
+            <p class="note tower-reveal" id="end-tower"></p>
+            <div class="curves" id="curves" hidden>
+              <div class="curve" id="curve-floors"></div>
+            </div>
+            <div class="result-controls">
+              <div class="row" id="result-actions">
+                <button class="btn" id="share-btn" type="button" aria-haspopup="dialog" disabled>
+                  <svg class="share-button-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V3m-4 4 4-4 4 4M6 12H4v9h16v-9h-2"/></svg>
+                  <span id="share-button-label">Preparing…</span>
+                </button>
+                <button class="btn ghost" id="top-btn" hidden>See the top 100</button>
+              </div>
+              <nav class="result-nav" id="result-nav" aria-label="Towers" hidden>
+                <a class="btn" href="./" id="practice-today" hidden>Today’s tower</a>
+                <a class="btn archive-button" href="?archive=1" id="result-archive">Explore past towers</a>
+              </nav>
+            </div>
+          </div>
+          <!-- The ask (crowd-lists design 03, §6; 04, §1): one answer for a future category, never naming its day,
+               in a card of its own under the results panel, so it reads apart from this run's results (the owner,
+               2026-11-18: "the question should be at the bottom", "almost like a separate section"). A native field on every device, with the phone's own keyboard and spelling help;
+               the pixel keyboard is for play. -->
+          <form class="ask" id="ask" autocomplete="off" hidden>
+            <label class="ask-q" id="ask-q" for="ask-answer" tabindex="-1"></label>
+            <input id="ask-answer" type="text" maxlength="64" autocomplete="off" enterkeyhint="send" placeholder="Your answer" />
+            <div class="ask-actions" id="ask-actions">
+              <button type="submit" class="btn" id="ask-send">Send</button>
+            </div>
+            <p class="ask-status" id="ask-status" role="status"></p>
+            <p class="ask-note">Answers are anonymous and help rank that day's list.</p>
+          </form>
+        </div>
+      </section>
+
+      <section id="card-view" class="overlay" role="dialog" aria-modal="true" aria-labelledby="card-view-title">
+        <div class="panel card-panel">
+          <h2 id="card-view-title">Share your tower</h2>
+          <div class="share-pic" id="share-pic" role="button" tabindex="0">
+            <img id="card-img" alt="" />
+            <span class="share-badge" id="share-badge"><svg viewBox="0 0 8 8" width="14" height="14" aria-hidden="true" shape-rendering="crispEdges"><path fill="currentColor" d="M0 0h5v1H1v4H0zM2 2h6v6H2zM3 3v4h4V3z"/></svg><span id="share-badge-text">Tap to copy</span></span>
+            <span class="share-stamp" id="share-stamp" aria-hidden="true">Copied!</span>
+          </div>
+          <div class="share-results">
+            <textarea id="share-text" readonly rows="2" aria-label="Your results"></textarea>
+            <button type="button" class="share-copy" id="share-copy-text" aria-label="Copy results" title="Copy results"><svg viewBox="0 0 8 8" width="14" height="14" aria-hidden="true" shape-rendering="crispEdges"><path fill="currentColor" d="M0 0h5v1H1v4H0zM2 2h6v6H2zM3 3v4h4V3z"/></svg></button>
+          </div>
+          <label class="share-answers"><input type="checkbox" id="share-answers" /> Show my answers <span class="share-spoiler">(spoilers)</span></label>
+          <div class="share-actions">
+            <button class="btn" id="share-send" hidden>Send…</button>
+            <button class="btn" id="share-copy-main" hidden>Copy results</button>
+            <a class="btn" id="card-download" role="button">Save</a>
+          </div>
+          <p class="note" id="share-status" role="status"></p>
+          <button type="button" class="x-close" id="card-close" aria-label="Close" title="Close"><svg viewBox="0 0 7 7" shape-rendering="crispEdges" fill="currentColor" aria-hidden="true"><path d="M0 0h2v1H0zM1 1h2v1H1zM2 2h3v1H2zM3 3h1v1H3zM2 4h3v1H2zM1 5h2v1H1zM0 6h2v1H0zM5 0h2v1H5zM4 1h2v1H4zM4 5h2v1H4zM5 6h2v1H5z"/></svg></button>
+        </div>
+      </section>
+
+      <section id="top100" class="overlay">
+        <div class="panel list">
+          <div class="list-head">
+            <h2 id="top-title"></h2>
+            <button type="button" class="x-close" id="top-close" aria-label="Close" title="Close"><svg viewBox="0 0 7 7" shape-rendering="crispEdges" fill="currentColor" aria-hidden="true"><path d="M0 0h2v1H0zM1 1h2v1H1zM2 2h3v1H2zM3 3h1v1H3zM2 4h3v1H2zM1 5h2v1H1zM0 6h2v1H0zM5 0h2v1H5zM4 1h2v1H4zM4 5h2v1H4zM5 6h2v1H5z"/></svg></button>
+          </div>
+          <ol id="top-list"></ol>
+        </div>
+      </section>
+    </div>
+    <dialog id="stats-view" class="header-dialog" aria-labelledby="stats-title">
+      <div class="panel">
+        <h2 class="dialog-title" id="stats-title">Your stats</h2>
+        <div class="stats">
+          <div class="stat"><div class="v" id="stats-played"></div><div class="l">played</div></div>
+          <div class="stat"><div class="v" id="stats-streak"></div><div class="l">day streak</div></div>
+          <div class="stat"><div class="v" id="stats-best"></div><div class="l">best floors</div></div>
+        </div>
+        <p class="note" id="stats-note"></p>
+        <button type="button" class="x-close" id="stats-close" aria-label="Close" title="Close"><svg viewBox="0 0 7 7" shape-rendering="crispEdges" fill="currentColor" aria-hidden="true"><path d="M0 0h2v1H0zM1 1h2v1H1zM2 2h3v1H2zM3 3h1v1H3zM2 4h3v1H2zM1 5h2v1H1zM0 6h2v1H0zM5 0h2v1H5zM4 1h2v1H4zM4 5h2v1H4zM5 6h2v1H5z"/></svg></button>
+      </div>
+    </dialog>
+
+    <dialog id="help-view" class="header-dialog" aria-labelledby="help-title">
+      <div class="panel">
+        <h2 class="dialog-title" id="help-title">How to play</h2>
+        <ol class="rules" id="help-rules"></ol>
+        <button type="button" class="x-close" id="help-close" aria-label="Close" title="Close"><svg viewBox="0 0 7 7" shape-rendering="crispEdges" fill="currentColor" aria-hidden="true"><path d="M0 0h2v1H0zM1 1h2v1H1zM2 2h3v1H2zM3 3h1v1H3zM2 4h3v1H2zM1 5h2v1H1zM0 6h2v1H0zM5 0h2v1H5zM4 1h2v1H4zM4 5h2v1H4zM5 6h2v1H5z"/></svg></button>
+      </div>
+    </dialog>
+  </body>
 </html>
